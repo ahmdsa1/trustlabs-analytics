@@ -1,0 +1,18 @@
+credentials:
+  usernames:
+    admin:
+      email: ahmedsm2727@gmail.com
+      name: Ahmed Mustafa
+      password: $2b$12$wcoGGl1/I28kNCEe0kZ9mOTFoUi6WD4LbNcHJZzvMTpis3VYdrP7e
+    branch_manager:
+      email: manager@trustlabs.com
+      name: Branch Manager
+      password: $2b$12$O.rKqIdbO7QutUyjZgAhv.QK77QPR4MIRkjdeoNZ7N1zA0ogQyrvm
+
+cookie:
+  expiry_days: 7
+  key: tl_k8$mNq2#vP9xR5@wL3jY7uE1cA6
+  name: trust_labs_auth_cookie
+
+preauthorized:
+  emails: []

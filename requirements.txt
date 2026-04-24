@@ -1,0 +1,10 @@
+streamlit==1.31.0
+pandas==2.2.0
+plotly==5.18.0
+openpyxl==3.1.2
+scikit-learn==1.4.0
+numpy==1.26.4
+streamlit-authenticator==0.3.3
+streamlit-autorefresh==1.0.1
+bcrypt==4.1.2
+PyYAML==6.0.1
