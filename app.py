@@ -69,15 +69,13 @@ elif authentication_status == False:
     st.error("Incorrect username or password. Please try again.")
     st.stop()
 elif authentication_status == None:
-    # No login attempt yet - show identity branding and stop here
     st.markdown("""
-    <div style="max-width:380px;margin:80px auto 0;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:12px">🏥</div>
-        <div style="font-size:1.4rem;font-weight:600;color:#202124;margin-bottom:4px">Trust Labs</div>
-        <div style="font-size:0.875rem;color:#5f6368;margin-bottom:32px">Healthcare Analytics Platform</div>
+    <div style="max-width:400px;margin:100px auto 40px;text-align:center;padding:40px;border:1px solid #dadce0;border-radius:8px;background:#ffffff">
+        <div style="font-size:2.5rem;margin-bottom:16px">🏥</div>
+        <div style="font-size:1.5rem;font-weight:400;color:#202124;margin-bottom:8px;font-family:'Google Sans',sans-serif">Sign in</div>
+        <div style="font-size:1rem;color:#202124;margin-bottom:32px;font-family:'Roboto',sans-serif">to continue to Trust Labs Analytics</div>
     </div>
     """, unsafe_allow_html=True)
-    st.info("Please enter your credentials to continue.")
     st.stop()
 
 # ── Authenticated past this point ──────────────────────────
@@ -95,249 +93,85 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&family=Google+Sans+Display:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 html, body, [class*="css"], .stApp {
-  background: #f8f9fa !important;
+  background: #ffffff !important;
   color: #202124 !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 .main .block-container {
-  padding: 1.5rem 2rem !important;
-  max-width: 1600px !important;
-}
-.stMarkdown, .stMarkdown *, .stText,
-[data-testid="stMarkdownContainer"],
-[data-testid="stMarkdownContainer"] *,
-[data-testid="stText"], .element-container,
-p, span, li, h1, h2, h3, h4, h5, h6 {
-  color: #202124 !important;
+  padding: 1rem 2.5rem !important;
+  max-width: 1400px !important;
 }
 
-[data-testid="collapsedControl"],
-[data-testid="stSidebarCollapseButton"],
-section[data-testid="stSidebarCollapsedControl"],
-button[data-testid="baseButton-headerNoPadding"] {
-  visibility: visible !important;
-  display: flex !important;
-  opacity: 1 !important;
-}
-
+/* ── SIDEBAR GOOGLE STYLE ─────────────────────────────────── */
 [data-testid="stSidebar"] {
   background: #ffffff !important;
   border-right: 1px solid #dadce0 !important;
+  width: 280px !important;
 }
-[data-testid="stSidebar"] * { color: #202124 !important; }
-[data-testid="stSidebar"] .stRadio > div { gap: 2px !important; }
+[data-testid="stSidebar"] .stRadio > div { gap: 4px !important; }
 [data-testid="stSidebar"] .stRadio label {
   display: flex !important; align-items: center !important;
-  gap: 10px !important; padding: 10px 14px !important;
-  border-radius: 8px !important; color: #5f6368 !important;
+  gap: 12px !important; padding: 12px 24px !important;
+  border-radius: 0 24px 24px 0 !important; color: #3c4043 !important;
   font-weight: 500 !important; font-size: 0.875rem !important;
-  cursor: pointer !important; transition: background .2s, color .2s !important;
+  cursor: pointer !important; transition: background .2s !important;
+  margin-right: 12px !important;
   font-family: 'Google Sans', sans-serif !important;
 }
 [data-testid="stSidebar"] .stRadio label:hover {
-  background: #e8f0fe !important; color: #1a73e8 !important;
+  background: #f1f3f4 !important;
 }
-[data-testid="stSidebar"] .stRadio [data-baseweb="radio"] > div:first-child {
-  display: none !important;
-}
-
-.stTabs [data-baseweb="tab-list"] {
-  background: #ffffff !important; border-radius: 16px 16px 0 0 !important;
-  padding: 0 16px !important; border-bottom: 1px solid #dadce0 !important;
-  gap: 0 !important;
-}
-.stTabs [data-baseweb="tab"] {
-  height: 52px !important;
-  font-family: 'Google Sans', sans-serif !important;
-  font-weight: 500 !important; font-size: 0.875rem !important;
-  color: #5f6368 !important; border-bottom: 3px solid transparent !important;
-  padding: 0 20px !important; background: transparent !important;
-}
-.stTabs [aria-selected="true"] {
-  color: #1a73e8 !important; border-bottom-color: #1a73e8 !important;
-}
-.stTabs [data-baseweb="tab-panel"] {
-  background: #ffffff !important; border-radius: 0 0 16px 16px !important;
-  padding: 20px !important; border: 1px solid #dadce0 !important;
-  border-top: none !important;
+[data-testid="stSidebar"] .stRadio [data-testid="stMarkdownContainer"] p {
+    color: inherit !important;
 }
 
-.stTextInput label, .stSelectbox label, .stMultiSelect label,
-.stNumberInput label, .stRadio label, .stCheckbox label {
-  color: #5f6368 !important; font-size: 0.8125rem !important;
-  font-weight: 500 !important; font-family: 'Google Sans', sans-serif !important;
-}
-.stTextInput input, .stTextInput > div > div > input {
-  color: #202124 !important; background: #ffffff !important;
-  border: 1px solid #dadce0 !important; border-radius: 8px !important;
-}
-.stSelectbox *, .stMultiSelect * { color: #202124 !important; }
-.stSelectbox > div > div, .stMultiSelect > div > div { background: #ffffff !important; }
-[data-baseweb="select"] > div, [data-baseweb="popover"] > div,
-[role="listbox"], [role="option"] { background: #ffffff !important; color: #202124 !important; }
-[role="option"]:hover { background: #e8f0fe !important; }
-[data-baseweb="tag"] { background: #e8f0fe !important; color: #1a73e8 !important; }
-.stNumberInput input { color: #202124 !important; background: #ffffff !important; border: 1px solid #dadce0 !important; }
-
+/* ── BUTTONS & INPUTS ────────────────────────────────────── */
 .stButton > button {
   font-family: 'Google Sans', sans-serif !important; font-weight: 500 !important;
   font-size: 0.875rem !important; background: #1a73e8 !important;
-  color: #ffffff !important; border: none !important;
-  border-radius: 8px !important; padding: 0.625rem 1.5rem !important;
-  box-shadow: 0 1px 3px rgba(60,64,67,.15) !important;
-  transition: box-shadow .2s, transform .15s !important;
+  color: #ffffff !important; border: 1px solid transparent !important;
+  border-radius: 24px !important; padding: 0.6rem 1.5rem !important;
+  transition: all .2s !important;
+  box-shadow: none !important;
 }
-.stButton > button:hover { box-shadow: 0 4px 12px rgba(60,64,67,.15) !important; transform: translateY(-1px) !important; }
-.stDownloadButton > button {
-  background: #ffffff !important; color: #1a73e8 !important;
-  border: 1px solid #dadce0 !important; border-radius: 8px !important;
-  font-weight: 500 !important; font-family: 'Google Sans', sans-serif !important;
+.stButton > button:hover {
+  background: #1765cc !important;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15) !important;
 }
-.stDownloadButton > button:hover { background: #e8f0fe !important; }
 
-[data-testid="stDataFrame"] { border-radius: 12px !important; border: 1px solid #dadce0 !important; overflow: hidden !important; }
-
-#MainMenu, footer { visibility: hidden; }
-.stDeployButton { display: none; }
-[data-testid="stMetric"] { display: none !important; }
-
-/* ── CUSTOM COMPONENTS ────────────────────────────────────── */
-
-.page-header { margin-bottom: 1.5rem; }
-.page-header h1 {
-  font-family: 'Google Sans Display', sans-serif !important;
-  font-size: 1.75rem !important; font-weight: 500 !important;
-  color: #202124 !important; margin: 0 0 4px 0 !important;
+.stTextInput input {
+  border-radius: 8px !important;
+  border: 1px solid #dadce0 !important;
+  padding: 10px 14px !important;
 }
-.page-header p { font-size: 0.875rem; color: #5f6368; margin: 0; }
 
-.kpi-grid { display: grid; gap: 12px; margin-bottom: 1.25rem; }
+/* ── CARDS & SECTIONS ─────────────────────────────────────── */
 .kpi-card {
-  background: #ffffff; border-radius: 16px; padding: 20px 22px;
-  box-shadow: 0 1px 3px rgba(60,64,67,.15),0 1px 2px rgba(60,64,67,.12);
-  border: 1px solid #dadce0; position: relative; overflow: hidden;
-  transition: box-shadow .2s;
+  background: #ffffff; border-radius: 12px; padding: 24px;
+  border: 1px solid #dadce0;
+  transition: box-shadow .2s ease-in-out;
 }
-.kpi-card:hover { box-shadow: 0 4px 12px rgba(60,64,67,.15); }
-.kpi-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--acc, #1a73e8); border-radius: 16px 16px 0 0;
+.kpi-card:hover {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.30), 0 1px 3px 1px rgba(60,64,67,.15);
 }
 .kpi-label {
-  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.8px; color: var(--acc, #1a73e8);
-  font-family: 'Google Sans', sans-serif; margin-bottom: 6px;
+  font-size: 0.8rem; color: #5f6368; font-weight: 500;
+  font-family: 'Google Sans', sans-serif; margin-bottom: 8px;
 }
 .kpi-value {
-  font-size: 1.9rem; font-weight: 500; color: #202124;
-  font-family: 'Google Sans Display', sans-serif; line-height: 1.1; margin-bottom: 8px;
+  font-size: 2.25rem; font-weight: 400; color: #202124;
+  font-family: 'Google Sans Display', sans-serif; margin-bottom: 4px;
 }
-.kpi-trend {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 0.72rem; font-weight: 500; padding: 3px 10px;
-  border-radius: 100px; font-family: 'Google Sans', sans-serif;
-}
-.kpi-trend.up     { background: #e6f4ea; color: #137333; }
-.kpi-trend.down   { background: #fce8e6; color: #c5221f; }
-.kpi-trend.neutral{ background: #fef7e0; color: #b06000; }
-.kpi-icon { position: absolute; top: 16px; right: 18px; font-size: 1.75rem; opacity: 0.1; }
 
 .section-title {
-  font-family: 'Google Sans', sans-serif !important; font-size: 0.9375rem !important;
-  font-weight: 600 !important; color: #202124 !important;
-  margin: 0 0 14px 0 !important; display: flex; align-items: center; gap: 8px;
-  padding: 18px 20px 0 20px; background: #ffffff;
-  border-radius: 16px 16px 0 0; border: 1px solid #dadce0; border-bottom: none;
-}
-.section-subtitle {
-  font-size: 0.8rem; color: #5f6368; margin: -10px 0 14px 0;
-  padding: 0 20px 12px 20px; background: #ffffff;
-  border-left: 1px solid #dadce0; border-right: 1px solid #dadce0;
-}
-.chart-body {
-  background: #ffffff; border-radius: 0 0 16px 16px;
-  border: 1px solid #dadce0; border-top: none;
-  padding: 0 16px 16px 16px; margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(60,64,67,.15);
-}
-.info-card {
-  background: #ffffff; border-radius: 16px; padding: 20px 22px;
-  box-shadow: 0 1px 3px rgba(60,64,67,.15); border: 1px solid #dadce0;
-  margin-bottom: 12px;
-}
-.info-card-title {
-  font-family: 'Google Sans', sans-serif; font-size: 0.9375rem;
-  font-weight: 600; color: #202124; margin: 0 0 14px 0;
-}
-.infl-banner {
-  background: linear-gradient(90deg,#fef7e0 0%,#e8f0fe 100%);
-  border-left: 4px solid #fbbc04; padding: 14px 18px;
-  border-radius: 8px; margin-bottom: 16px; font-size: 0.86rem; color: #3c4043;
+  font-family: 'Google Sans', sans-serif !important; font-size: 1.25rem !important;
+  font-weight: 400 !important; color: #202124 !important;
+  margin: 2rem 0 1rem 0 !important;
 }
 
-/* ── MOBILE RESPONSIVE ────────────────────────────────────── */
-
-@media screen and (max-width: 768px) {
-  .main .block-container {
-    padding: 0.75rem 0.75rem !important;
-  }
-  .kpi-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
-  }
-  .kpi-card {
-    padding: 14px 14px !important;
-    border-radius: 12px !important;
-  }
-  .kpi-value {
-    font-size: 1.35rem !important;
-    margin-bottom: 6px !important;
-  }
-  .kpi-label {
-    font-size: 0.62rem !important;
-    margin-bottom: 4px !important;
-  }
-  .kpi-trend {
-    font-size: 0.65rem !important;
-    padding: 2px 8px !important;
-  }
-  .kpi-icon { display: none !important; }
-  .page-header h1 {
-    font-size: 1.25rem !important;
-  }
-  .page-header p {
-    font-size: 0.8rem !important;
-  }
-  .section-title {
-    font-size: 0.85rem !important;
-    padding: 12px 14px 0 14px !important;
-  }
-  .section-subtitle {
-    font-size: 0.75rem !important;
-    padding: 0 14px 10px 14px !important;
-  }
-  .chart-body {
-    padding: 0 6px 10px 6px !important;
-  }
-  .info-card {
-    padding: 14px 14px !important;
-    border-radius: 12px !important;
-  }
-  .stTabs [data-baseweb="tab"] {
-    padding: 0 12px !important;
-    font-size: 0.8rem !important;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .kpi-grid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-  .kpi-value {
-    font-size: 1.1rem !important;
-  }
-}
-</style>
-""", unsafe_allow_html=True)
+/* ── HIDE STREAMLIT ELEMENTS ──────────────────────────────── */
+#MainMenu, footer { visibility: hidden; }
+.stDeployButton { display: none; }
 
 # ============================================================
 # PLOTLY THEME
@@ -348,39 +182,35 @@ def google_theme(fig, height=350):
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(showgrid=False, showline=True, linecolor="#dadce0",
-                   tickfont=dict(size=11, color="#5f6368", family="Roboto"),
-                   title_font=dict(size=11, color="#5f6368", family="Google Sans")),
+                   tickfont=dict(size=12, color="#5f6368", family="Roboto"),
+                   title_font=dict(size=12, color="#5f6368", family="Google Sans")),
         yaxis=dict(showgrid=True, gridcolor="#f1f3f4", showline=False,
-                   tickfont=dict(size=11, color="#5f6368", family="Roboto"),
-                   title_font=dict(size=11, color="#5f6368", family="Google Sans")),
-        font=dict(family="Roboto, sans-serif", size=11, color="#202124"),
+                   tickfont=dict(size=12, color="#5f6368", family="Roboto"),
+                   title_font=dict(size=12, color="#5f6368", family="Google Sans")),
+        font=dict(family="Roboto, sans-serif", size=12, color="#202124"),
         margin=dict(t=20, b=30, l=40, r=20),
         height=height,
-        hoverlabel=dict(bgcolor="#ffffff", font_size=11, font_family="Roboto", bordercolor="#dadce0"),
-        legend=dict(font=dict(size=11, color="#5f6368"), bgcolor="rgba(0,0,0,0)",
+        hoverlabel=dict(bgcolor="#ffffff", font_size=12, font_family="Roboto", bordercolor="#dadce0"),
+        legend=dict(font=dict(size=12, color="#5f6368"), bgcolor="rgba(0,0,0,0)",
                    orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
     )
     return fig
 
-def google_donut(vals, names, colors, hole=0.6):
+def google_donut(vals, names, colors, hole=0.7):
     fig = px.pie(values=vals, names=names, color=names,
                  color_discrete_map=dict(zip(names, colors)))
     fig.update_traces(hole=hole, textposition="outside", textinfo="percent+label",
-                      textfont=dict(size=11, color="#202124"),
-                      marker=dict(line=dict(color="#ffffff", width=3)))
+                      textfont=dict(size=12, color="#202124"),
+                      marker=dict(line=dict(color="#ffffff", width=2)))
     fig.update_layout(height=300, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                       showlegend=False, margin=dict(t=10, b=10, l=10, r=10),
-                      font=dict(family="Google Sans, sans-serif", size=11, color="#202124"))
+                      font=dict(family="Google Sans, sans-serif", size=12, color="#202124"))
     return fig
 
 def safe_vline(fig, x_datetime):
     xs = x_datetime.strftime("%Y-%m-%d")
     fig.add_shape(type="line", x0=xs, x1=xs, y0=0, y1=1, xref="x", yref="paper",
-                  line=dict(color="#9aa0a6", width=1.5, dash="solid"))
-    fig.add_annotation(x=xs, y=0.97, xref="x", yref="paper", text="Forecast →",
-                       showarrow=False, xanchor="left",
-                       font=dict(size=10, color="#5f6368"),
-                       bgcolor="rgba(255,255,255,0.85)", borderpad=3)
+                  line=dict(color="#9aa0a6", width=1, dash="solid"))
 
 # ============================================================
 # CARD HELPERS
@@ -389,30 +219,17 @@ def safe_vline(fig, x_datetime):
 def sec_title(title, subtitle=""):
     html = f'<div class="section-title">{title}</div>'
     if subtitle:
-        html += f'<div class="section-subtitle">{subtitle}</div>'
+        html += f'<div style="font-size:0.875rem;color:#5f6368;margin:-8px 0 24px 0">{subtitle}</div>'
     st.markdown(html, unsafe_allow_html=True)
 
-def chart_start():
-    st.markdown('<div class="chart-body">', unsafe_allow_html=True)
-
-def chart_end():
-    st.markdown('</div>', unsafe_allow_html=True)
-
-def info_card_start(title):
-    st.markdown(f'<div class="info-card"><div class="info-card-title">{title}</div>', unsafe_allow_html=True)
-
-def info_card_end():
-    st.markdown('</div>', unsafe_allow_html=True)
-
 def kpi_card(label, value, trend_text, trend_dir="neutral", icon="📊", accent="#1a73e8"):
-    cls   = {"up": "up", "down": "down", "neutral": "neutral"}.get(trend_dir, "neutral")
-    arrow = {"up": "↑", "down": "↓", "neutral": "→"}.get(trend_dir, "→")
     return f"""
-<div class="kpi-card" style="--acc:{accent}">
-  <div class="kpi-icon">{icon}</div>
+<div class="kpi-card">
   <div class="kpi-label">{label}</div>
   <div class="kpi-value">{value}</div>
-  <span class="kpi-trend {cls}">{arrow}&nbsp;{trend_text}</span>
+  <div style="font-size:0.8rem;color:#5f6368;display:flex;align-items:center;gap:4px">
+    <span>{icon}</span> {trend_text}
+  </div>
 </div>"""
 
 def kpi_row(cards, cols=5):
@@ -675,30 +492,25 @@ high_risk_count = int((patients_data["churn_risk_category"] == "High Risk").sum(
 
 with st.sidebar:
     st.markdown("""
-<div style="padding:12px 6px 16px 6px">
-  <div style="display:flex;align-items:center;gap:10px">
-    <span style="font-size:1.6rem">🏥</span>
-    <div>
-      <div style="font-family:'Google Sans Display',sans-serif;font-size:1rem;
-                  font-weight:700;color:#202124;line-height:1.2">Trust Labs</div>
-      <div style="font-size:.7rem;color:#5f6368">Healthcare Analytics</div>
+<div style="padding:16px 24px">
+    <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:2rem">🏥</span>
+        <div style="font-family:'Google Sans',sans-serif;font-size:1.15rem;font-weight:500;color:#202124">Trust Labs</div>
     </div>
-  </div>
 </div>""", unsafe_allow_html=True)
 
     # Logged-in user info
     user_name = st.session_state.get("name", "User")
     st.markdown(f"""
-<div style="background:#f1f3f4;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:0.8rem">
-  <span style="color:#5f6368">Logged in as</span><br>
-  <strong style="color:#202124">{user_name}</strong>
+<div style="padding:0 24px 16px;font-size:0.875rem;color:#5f6368">
+  Logged in as <b>{user_name}</b>
 </div>""", unsafe_allow_html=True)
 
     st.markdown('<hr style="margin:0 0 12px;border:none;border-top:1px solid #dadce0">', unsafe_allow_html=True)
 
     page = st.radio("nav",
-        ["🏠  Home", "🔍  Patient Search", "👨‍⚕️  Doctor Search",
-         "🏢  Corporate Search", "📊  Analytics", "📥  Export"],
+        ["Home", "Patient Search", "Doctor Search",
+         "Corporate Search", "Analytics", "Export"],
         label_visibility="collapsed")
 
     st.markdown('<hr style="margin:12px 0;border:none;border-top:1px solid #dadce0">', unsafe_allow_html=True)
@@ -730,7 +542,7 @@ Updated {datetime.now().strftime("%b %d, %Y • %H:%M")}</div>""", unsafe_allow_
 # PAGE: HOME
 # ============================================================
 
-if page == "🏠  Home":
+if page == "Home":
     st.markdown("""<div class="page-header">
 <h1>Analytics Dashboard</h1>
 <p>Professional healthcare intelligence platform</p>
@@ -751,22 +563,17 @@ if page == "🏠  Home":
 
     c1, c2 = st.columns(2)
     with c1:
-        sec_title("👥 Gender Distribution")
-        chart_start()
+        sec_title("Gender Distribution")
         gender_counts = patients_data["gender"].value_counts()
         fig = google_donut(gender_counts.values, gender_counts.index, ["#1a73e8", "#ea4335"])
         st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-        chart_end()
-    with c2:
-        sec_title("⚠️ Churn Risk Levels")
-        chart_start()
+            with c2:
+        sec_title("Churn Risk Levels")
         risk_counts = patients_data["churn_risk_category"].value_counts()
         fig = google_donut(risk_counts.values, risk_counts.index, ["#34a853", "#fbbc04", "#ea4335"])
         st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-        chart_end()
-
-    sec_title("📈 Monthly Visit Trends")
-    chart_start()
+        
+    sec_title("Monthly Visit Trends")
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=monthly_trends["visit_month"], y=monthly_trends["total_visits"],
@@ -775,7 +582,6 @@ if page == "🏠  Home":
     ))
     google_theme(fig, height=320)
     st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-    chart_end()
 
     gold_count = len(patients_data[patients_data["patient_tier"] == "Gold"])
     corporates_data = load_corporates()
@@ -796,10 +602,10 @@ if page == "🏠  Home":
 # PAGE: PATIENT SEARCH
 # ============================================================
 
-elif page == "🔍  Patient Search":
+elif page == "Patient Search":
     st.markdown("""<div class="page-header">
 <h1>Patient Search</h1>
-<p>Search and analyze patient records</p>
+<p>Search and analyze patient records in the Trust Labs database</p>
 </div>""", unsafe_allow_html=True)
 
     tab1, tab2 = st.tabs(["🆔 ID Lookup", "🔎 Advanced Search"])
@@ -837,8 +643,7 @@ elif page == "🔍  Patient Search":
 
                 info_card_start("Patient Information")
                 st.dataframe(patient.T, use_container_width=True)
-                info_card_end()
-
+                
                 patient_visits = get_patient_visits(patient_id)
                 if not patient_visits.empty:
                     info_card_start(f"Visit History ({len(patient_visits)} visits)")
@@ -854,8 +659,7 @@ elif page == "🔍  Patient Search":
                                            export_to_csv(patient_visits),
                                            f"patient_{patient_id}_visits.csv",
                                            use_container_width=True)
-                    info_card_end()
-
+                    
     with tab2:
         info_card_start("🔎 Advanced Filters")
         c1, c2, c3 = st.columns(3)
@@ -884,16 +688,15 @@ elif page == "🔍  Patient Search":
                                    "loyalty_points", "churn_risk_category", "total_visits"]],
                          hide_index=True, use_container_width=True, height=400)
             st.download_button("📊 Export Results", export_to_excel(results), "search_results.xlsx")
-        info_card_end()
-
+        
 # ============================================================
 # PAGE: DOCTOR SEARCH
 # ============================================================
 
-elif page == "👨‍⚕️  Doctor Search":
+elif page == "Doctor Search":
     st.markdown("""<div class="page-header">
-<h1>Doctor Performance</h1>
-<p>Track and analyze doctor referral metrics</p>
+<h1>Doctor Referrals</h1>
+<p>Analyze referral performance and doctor engagement</p>
 </div>""", unsafe_allow_html=True)
 
     doctors_data = load_doctors()
@@ -926,27 +729,23 @@ elif page == "👨‍⚕️  Doctor Search":
                          "#34a853" if perf == "Exceeds Expectations" else "#fbbc04")
             ], 5), unsafe_allow_html=True)
 
-            info_card_start("Complete Doctor Profile")
             st.dataframe(doctor.T, use_container_width=True)
-            info_card_end()
-
-    info_card_start("All Doctors Performance")
+            
     display_doctors = doctors_data[[
         "doctor_id", "doctor_name", "specialty", "actual_referrals",
         "unique_patients_referred", "total_revenue_generated", "performance_category"
     ]].sort_values("actual_referrals", ascending=False)
     st.dataframe(display_doctors, hide_index=True, use_container_width=True, height=400)
     st.download_button("📊 Export Doctors", export_to_excel(display_doctors), "doctors_performance.xlsx")
-    info_card_end()
-
+    
 # ============================================================
 # PAGE: CORPORATE SEARCH
 # ============================================================
 
-elif page == "🏢  Corporate Search":
+elif page == "Corporate Search":
     st.markdown("""<div class="page-header">
-<h1>Corporate Contracts</h1>
-<p>Manage and analyze corporate partnerships</p>
+<h1>Corporate Performance</h1>
+<p>Monitor contract utilization and corporate patient visits</p>
 </div>""", unsafe_allow_html=True)
 
     corporates_data = load_corporates()
@@ -981,27 +780,23 @@ elif page == "🏢  Corporate Search":
                          "#34a853" if health == "Excellent" else "#fbbc04")
             ], 5), unsafe_allow_html=True)
 
-            info_card_start("Contract Details")
             st.dataframe(corp.T, use_container_width=True)
-            info_card_end()
-
-    info_card_start("All Corporate Contracts")
+            
     display_corps = corporates_data[[
         "corporate_id", "company_name", "industry", "employee_count",
         "unique_employees", "total_revenue", "contract_health"
     ]].sort_values("total_revenue", ascending=False)
     st.dataframe(display_corps, hide_index=True, use_container_width=True, height=400)
     st.download_button("📊 Export Contracts", export_to_excel(display_corps), "corporate_contracts.xlsx")
-    info_card_end()
-
+    
 # ============================================================
 # PAGE: ANALYTICS
 # ============================================================
 
-elif page == "📊  Analytics":
+elif page == "Analytics":
     st.markdown("""<div class="page-header">
-<h1>Analytics Dashboard</h1>
-<p>Patients · Revenue · Inflation-adjusted CAGR · 3-month forecast</p>
+<h1>Platform Analytics</h1>
+<p>Deep dive into operational and clinical metrics</p>
 </div>""", unsafe_allow_html=True)
 
     visits_data  = load_visits()
@@ -1026,32 +821,26 @@ elif page == "📊  Analytics":
         c1, c2 = st.columns(2)
         with c1:
             sec_title("🏆 Patient Tiers")
-            chart_start()
             tier_counts = patients_data["patient_tier"].value_counts()
             fig = google_donut(tier_counts.values, tier_counts.index, ["#fbbc04", "#9aa0a6", "#cd7f32"])
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-            chart_end()
         with c2:
             sec_title("🏥 Top 5 Branches")
-            chart_start()
             top5 = branches_data.nlargest(5, "total_visits")
             fig = px.bar(top5, x="total_visits", y="branch_name", orientation="h",
                          color="performance_score", color_continuous_scale="Blues")
             google_theme(fig, height=280)
             fig.update_layout(showlegend=False, yaxis_title=None, xaxis_title="Total Visits")
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-            chart_end()
-
+            
         sec_title("👥 Age Distribution")
-        chart_start()
         age_dist = patients_data["age_group"].value_counts().sort_index()
         fig = px.bar(x=age_dist.index, y=age_dist.values,
                      color=age_dist.values, color_continuous_scale="Viridis")
         google_theme(fig, height=300)
         fig.update_layout(showlegend=False, xaxis_title="Age Group", yaxis_title="Count")
         st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-        chart_end()
-
+        
     with tab2:
         hi = patients_data[patients_data["churn_risk_category"] == "High Risk"]
         me = patients_data[patients_data["churn_risk_category"] == "Medium Risk"]
@@ -1067,7 +856,6 @@ elif page == "📊  Analytics":
         c1, c2 = st.columns(2)
         with c1:
             sec_title("👥 Risk Level by Patient Tier", "How each tier breaks down across risk categories")
-            chart_start()
             cross = (patients_data.groupby(["churn_risk_category", "patient_tier"])
                      .size().reset_index(name="count"))
             fig = px.bar(cross, x="churn_risk_category", y="count", color="patient_tier",
@@ -1079,11 +867,9 @@ elif page == "📊  Analytics":
             google_theme(fig, height=300)
             fig.update_layout(xaxis_title=None, yaxis_title="Patients", legend_title="Tier")
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-            chart_end()
-
+            
         with c2:
             sec_title("🔥 Patient Engagement Status", "Current engagement level across all patients")
-            chart_start()
             if "engagement_status" in patients_data.columns:
                 eng = patients_data["engagement_status"].value_counts().reset_index()
                 eng.columns = ["Status", "Count"]
@@ -1097,10 +883,8 @@ elif page == "📊  Analytics":
                 st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
             else:
                 st.info("Engagement status column not available in this dataset.")
-            chart_end()
-
+            
         sec_title("📋 Average Profile by Risk Category", "What distinguishes high-risk from low-risk patients")
-        chart_start()
         summary_cols = ["churn_risk_category", "total_visits", "days_since_last_visit", "loyalty_points"]
         available    = [c for c in summary_cols if c in patients_data.columns]
         if len(available) > 1:
@@ -1110,17 +894,12 @@ elif page == "📊  Analytics":
             summary["_sort"] = summary.iloc[:, 0].map(order_map)
             summary = summary.sort_values("_sort").drop(columns=["_sort"])
             st.dataframe(summary, hide_index=True, use_container_width=True)
-        chart_end()
-
-        info_card_start("🚨 Top 20 High-Risk Patients — Prioritise for Outreach")
-        display_cols = [c for c in
-            ["patient_id", "churn_risk_score", "days_since_last_visit",
-             "total_visits", "loyalty_points", "patient_tier"] if c in hi.columns]
-        st.dataframe(hi.nlargest(20, "churn_risk_score")[display_cols],
+        
+        st.dataframe(hi.nlargest(20, "churn_risk_score")[["patient_id", "churn_risk_score", "days_since_last_visit",
+             "total_visits", "loyalty_points", "patient_tier"]],
                      hide_index=True, use_container_width=True)
         st.download_button("📊 Export High-Risk List", export_to_excel(hi), "high_risk.xlsx")
-        info_card_end()
-
+        
     with tab3:
         monthly_revenue = load_monthly_revenue()
         INFL = 0.33
@@ -1160,7 +939,6 @@ elif page == "📊  Analytics":
 
             sec_title("📊 Nominal vs Real Revenue",
                       "Real revenue = what those EGPs are actually worth in base-month purchasing power.")
-            chart_start()
             fig = go.Figure()
             fig.add_trace(go.Scatter(x=mr["visit_month"], y=mr["total_revenue"],
                 name="Nominal Revenue", mode="lines+markers",
@@ -1180,12 +958,10 @@ elif page == "📊  Analytics":
             google_theme(fig, height=380)
             fig.update_layout(yaxis_title="EGP")
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-            chart_end()
-
+            
             c1b, c2b = st.columns(2)
             with c1b:
                 sec_title("📈 Month-on-Month Growth")
-                chart_start()
                 mr2 = mr.copy()
                 mr2["nom_g"]  = mr2["total_revenue"].pct_change() * 100
                 mr2["real_g"] = mr2["real_revenue"].pct_change() * 100
@@ -1201,11 +977,9 @@ elif page == "📊  Analytics":
                 google_theme(fig, height=280)
                 fig.update_layout(yaxis_title="Growth (%)")
                 st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-                chart_end()
-
+                
             with c2b:
                 sec_title("💸 Cumulative Inflation Erosion")
-                chart_start()
                 mr["cum_tax"] = mr["inflation_tax"].cumsum()
                 fig = go.Figure()
                 fig.add_trace(go.Scatter(x=mr["visit_month"], y=mr["cum_tax"] / 1e6,
@@ -1215,10 +989,8 @@ elif page == "📊  Analytics":
                 google_theme(fig, height=280)
                 fig.update_layout(yaxis_title="Million EGP")
                 st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-                chart_end()
-
+                
             sec_title("🏢 Branch-Level CAGR Analysis", "Growth rates by branch, adjusted for inflation")
-            chart_start()
             branch_cagr_data = []
             for bname in branches_data["branch_name"].unique():
                 bv = visits_data[visits_data["branch_name"] == bname]
@@ -1247,15 +1019,13 @@ elif page == "📊  Analytics":
                 google_theme(fig, height=320)
                 fig.update_layout(barmode="group", yaxis_title="CAGR (%)", xaxis_title=None)
                 st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-            chart_end()
-
+            
     with tab4:
         predictions, std_err = predict_visits(monthly_trends, months_ahead=3)
         historical = monthly_trends[["visit_month", "total_visits"]].copy()
 
         sec_title("🔮 3-Month Visit Forecast",
                   "Historical visits vs AI-predicted future visits (linear trend + confidence band)")
-        chart_start()
         fig = go.Figure()
         band_x = predictions["visit_month"].tolist() + predictions["visit_month"].tolist()[::-1]
         band_y = predictions["upper"].tolist() + predictions["lower"].tolist()[::-1]
@@ -1280,8 +1050,7 @@ elif page == "📊  Analytics":
                                      showgrid=False, showline=True, linecolor="#dadce0"),
                           hovermode="x unified")
         st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
-        chart_end()
-
+        
         next_val   = int(predictions.iloc[0]["predicted_visits"])
         last_val   = int(historical.iloc[-1]["total_visits"])
         total_3m   = int(predictions["predicted_visits"].sum())
@@ -1296,13 +1065,11 @@ elif page == "📊  Analytics":
                      "#34a853" if avg_growth > 0 else "#ea4335")
         ], 3), unsafe_allow_html=True)
 
-        info_card_start("📅 Detailed Monthly Forecast")
         pred_display = predictions[["visit_month", "predicted_visits", "lower", "upper"]].copy()
         pred_display["visit_month"] = pred_display["visit_month"].dt.strftime("%B %Y")
         pred_display.columns = ["Month", "Predicted Visits", "Lower Bound", "Upper Bound"]
         st.dataframe(pred_display, hide_index=True, use_container_width=True)
-        info_card_end()
-
+        
         st.info("""
 **How to read this forecast:**
 - Blue line = actual historical visit data
@@ -1315,7 +1082,7 @@ elif page == "📊  Analytics":
 # PAGE: EXPORT
 # ============================================================
 
-elif page == "📥  Export":
+elif page == "Export":
     st.markdown("""<div class="page-header">
 <h1>Export Data</h1>
 <p>Download analytics data for external use</p>
@@ -1350,8 +1117,7 @@ elif page == "📥  Export":
                            export_to_csv(export_data),
                            f"{selected.lower().replace(' ', '_')}.csv",
                            use_container_width=True)
-    info_card_end()
-
+    
 # ============================================================
 # FOOTER
 # ============================================================
